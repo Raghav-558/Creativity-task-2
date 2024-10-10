@@ -1,0 +1,89 @@
+body {
+    background-color: black;
+}
+
+section{
+    display: flex;
+    align-items:center ;
+    min-height: 100vh;
+}
+.pendulum {
+    position: absolute;
+    width: 520px;
+    height: 380px;
+    background-color: black;
+    top: 50%;
+    left: 50%;
+    border-radius: 5%;
+    align-items: center;
+    border-top: 20px solid #53C1DE;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.pendulum-box {
+    display: flex;
+    padding: 170px 0 0 24px;
+}
+
+.ball {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    background-color: #455681;
+    position: relative;
+    transform-origin: 50% -300%;
+}
+
+.position{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ball::before {
+    content: '';
+    width: 2px;
+    height: 170px;
+    background-color: #53C1DE;
+    left: 38px;
+    top: -170px;
+    position: absolute;
+}
+
+.ball.first {
+    animation: firstball 1s alternate ease-in infinite;
+}
+
+
+@keyframes firstball {
+    0% {
+        transform: rotate(35deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+}
+@keyframes secondball {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(-2deg);
+    }
+}
+
+.ball.last {
+    animation: lastball 1s alternate ease-out infinite;
+}
+
+@keyframes lastball {
+    50% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-30deg);
+    }
+}
